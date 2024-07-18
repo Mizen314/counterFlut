@@ -1,23 +1,26 @@
 import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'firebase_options.dart';
+import 'firebase_options_dev.dart';
+import 'config/config_dev.dart';
 
 void main() async {
-  runApp(const MyApp());
+  runApp(MyApp1(config: Config()));
   await Firebase.initializeApp(
+    name: 'dev',
     options: DefaultFirebaseOptions.currentPlatform,
   );
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class MyApp1 extends StatelessWidget {
+  const MyApp1({super.key, required this.config});
+  final Config config;
 
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Flutter Dev',
       theme: ThemeData(
         // This is the theme of your application.
         //
@@ -37,7 +40,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const MyHomePage(title: 'Flutter Main 1'),
+      home: const MyHomePage(title: 'Flutter Dev'),
     );
   }
 }
@@ -66,10 +69,10 @@ class _MyHomePageState extends State<MyHomePage> {
   void _logTestEvent() {
     FirebaseAnalytics.instance.logBeginCheckout(
         value: 10.0,
-        currency: 'USD',
+        currency: 'ARS',
         items: [
           AnalyticsEventItem(
-            itemName: 'Socks',
+            itemName: 'Medias',
             itemId: 'xjw73ndnw',
           ),
         ],

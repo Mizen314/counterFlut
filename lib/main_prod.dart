@@ -1,23 +1,28 @@
 import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'firebase_options.dart';
+import 'firebase_options_prod.dart';
+import 'config/config_prod.dart';
+
 
 void main() async {
-  runApp(const MyApp());
+  runApp(MyApp(config: Config()));
   await Firebase.initializeApp(
+    name: 'prod',
     options: DefaultFirebaseOptions.currentPlatform,
   );
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  const MyApp({super.key, required this.config});
+  final Config config;
+
 
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Flutter Prod',
       theme: ThemeData(
         // This is the theme of your application.
         //
@@ -37,7 +42,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const MyHomePage(title: 'Flutter Main 1'),
+      home: const MyHomePage(title: 'Flutter Prod'),
     );
   }
 }
