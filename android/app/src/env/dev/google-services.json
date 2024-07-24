@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "652445272044",
+    "project_id": "sept-app",
+    "storage_bucket": "sept-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:652445272044:android:bc472d5d6bcd0d2f1f62c9",
+        "android_client_info": {
+          "package_name": "com.example.app.dev"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCsZML0lU_3WoLqjRnceutWeOVIHllOFok"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
