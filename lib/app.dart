@@ -11,18 +11,23 @@ class MyApp extends StatelessWidget {
       'click_detail': "asd",
       'flow': "prueba"
     });
-}
-cambiarPantalla() {
-      FirebaseAnalytics.instance.logScreenView(
-          screenClass: 'PantallaPrincipalButton',
-          screenName: 'PantallaPrincipalFromButton');
-    }
+  }
+
+  cambiarPantalla() {
+    FirebaseAnalytics.instance.logScreenView(
+        screenClass: 'PantallaPrincipalButton',
+        screenName: 'PantallaPrincipalFromButton');
+  }
 
   volverPantallaInicial() {
-      FirebaseAnalytics.instance.logScreenView(
-          screenClass: 'PantallaPrincipal',
-          screenName: 'PantallaPrincipalName');
-    }
+    FirebaseAnalytics.instance.logScreenView(
+        screenClass: 'PantallaPrincipal', screenName: 'PantallaPrincipalName');
+  }
+
+  activarDesactivarCollect() {
+    const option = false;
+    FirebaseAnalytics.instance.setAnalyticsCollectionEnabled(!option);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -76,6 +81,20 @@ cambiarPantalla() {
                   ElevatedButton(
                     onPressed: () => volverPantallaInicial(),
                     child: const Text('Volver pantalla principal'),
+                  ),
+                ],
+              ),
+              Row(
+                mainAxisAlignment:
+                    MainAxisAlignment.center, // Center horizontally
+                children: [
+                  const Padding(
+                    padding: EdgeInsets.all(16.0), // Add padding around button
+                    child: Text('Activar/desactivar Analytics'),
+                  ),
+                  ElevatedButton(
+                    onPressed: () => activarDesactivarCollect(),
+                    child: const Text('True/False'),
                   ),
                 ],
               ),
