@@ -9,21 +9,25 @@ void main() async {
   String environment = const String.fromEnvironment('environment',
       defaultValue: Environment.prod);
   Environment().initConfig(environment);
-  
+
   // Inicialización de firebase
   runApp(const MyApp());
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
 
-    //Log de screen view inicial - forma sencilla, para realizarla despues
-    //que se inicializa la pantalla principal
-    FirebaseAnalytics.instance.logScreenView(
-    screenClass: 'PantallaPrincipal',
-    screenName: 'PantallaPrincipalName'
-      );
+  //Log de screen view inicial - forma sencilla, para realizarla despues
+  //que se inicializa la pantalla principal
+  FirebaseAnalytics.instance.logScreenView(
+      screenClass: 'PantallaPrincipal', screenName: 'PantallaPrincipalName');
 
-    //user ID
-    await FirebaseAnalytics.instance.setUserId(id: "123456");
+  //user ID
+  await FirebaseAnalytics.instance.setUserId(id: "123456");
+
+  //Colection off por defecto
+  //FirebaseAnalytics.instance.setAnalyticsCollectionEnabled(false);
+
+  //widget
+
 
 }
